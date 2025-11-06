@@ -1,22 +1,24 @@
-pipeline{
-agent any
-{ stages{
-stage('build and test')
-{
-steps{
-echo "build and test successful"
+pipeline {
+    agent any
+
+    stages {
+        stage('Build and Test') {
+            steps {
+                echo "build and test successful"
+            }
+        }
+
+        stage('Generate Artifact') {
+            steps {
+                echo "hello"
+            }
+        }
+    }
+
+    post {
+        success {
+            echo "pipeline completed"
+        }
+    }
 }
-}
-stage('generate artifact')
-{
-steps{
-echo "hello"
-}
-}
-}
-post{
-success{
-echo "pipeline completed"
-}
-}
-} 
+
